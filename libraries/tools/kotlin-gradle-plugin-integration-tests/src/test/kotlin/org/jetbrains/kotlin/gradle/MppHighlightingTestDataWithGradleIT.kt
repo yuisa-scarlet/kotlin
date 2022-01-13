@@ -24,6 +24,7 @@ import kotlin.streams.toList
 
 const val testSourceRootSuffix = "tests"
 
+@IgnoreForJunit4
 @MppGradlePluginTests
 class MppHighlightingTestDataWithGradleIT : BaseGradleIT() {
 

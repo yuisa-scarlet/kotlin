@@ -36,6 +36,8 @@ import java.util.regex.Pattern
 import kotlin.io.path.isDirectory
 import kotlin.test.*
 
+public typealias IgnoreForJunit4 = org.junit.Ignore
+
 val SYSTEM_LINE_SEPARATOR: String = System.getProperty("line.separator")
 
 @RunWith(value = RunnerWithMuteInDatabase::class)
@@ -155,11 +157,11 @@ abstract class BaseGradleIT {
             version: String,
             environmentVariables: Map<String, String> = mapOf(),
             withDaemon: Boolean = true,
-            parallel: Boolean = false
+            stopDaemons: Boolean = true
         ): File {
             val wrapper = gradleWrappers.getOrPut(version) { createNewWrapperDir(version) }
 
-            if (withDaemon && !parallel) {
+            if (withDaemon && stopDaemons) {
                 DaemonRegistry.register(version)
 
                 if (DaemonRegistry.activeDaemons.size > MAX_ACTIVE_GRADLE_PROCESSES) {
@@ -268,8 +270,7 @@ abstract class BaseGradleIT {
         val abiSnapshot: Boolean = false,
         val hierarchicalMPPStructureSupport: Boolean? = null,
         val enableCompatibilityMetadataVariant: Boolean? = null,
-        val parallel: Boolean = false,
-        val maxWorkers: Int = (Runtime.getRuntime().availableProcessors() / 4 - 1).coerceAtLeast(2),
+        val stopDaemons: Boolean = true,
     )
 
     enum class ConfigurationCacheProblems {
@@ -429,7 +430,7 @@ abstract class BaseGradleIT {
         val wrapperVersion = chooseWrapperVersionOrFinishTest()
 
         val env = createEnvironmentVariablesMap(options)
-        val wrapperDir = prepareWrapper(wrapperVersion, env, parallel = options.parallel)
+        val wrapperDir = prepareWrapper(wrapperVersion, env, stopDaemons = options.stopDaemons)
 
         val cmd = createBuildCommand(wrapperDir, params, options)
 
@@ -954,10 +955,6 @@ Finished executing task ':$taskName'|
 
             if (options.enableCompatibilityMetadataVariant != null) {
                 add("-Pkotlin.mpp.enableCompatibilityMetadataVariant=${options.enableCompatibilityMetadataVariant}")
-            }
-            if (options.parallel) {
-                add("--parallel")
-                add("--max-workers=${options.maxWorkers}")
             }
 
             add("-Dorg.gradle.unsafe.configuration-cache=${options.configurationCache}")

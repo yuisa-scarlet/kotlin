@@ -21,7 +21,8 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
-@GradleTestVersions(maxVersion = TestVersions.Gradle.G_6_8)
+@IgnoreForJunit4
+@GradleTestVersions(minVersion = TestVersions.Gradle.G_6_8, maxVersion = TestVersions.Gradle.G_6_8)
 open class KotlinAndroid36GradleIT : KotlinAndroid34GradleIT() {
     override val androidGradlePluginVersion: AGPVersion
         get() = AGPVersion.v3_6_0
@@ -467,6 +468,7 @@ open class KotlinAndroid36GradleIT : KotlinAndroid34GradleIT() {
         }
 }
 
+@IgnoreForJunit4
 @GradleTestVersions(minVersion = TestVersions.Gradle.G_7_0)
 open class KotlinAndroid70GradleIT : KotlinAndroid36GradleIT() {
     override val androidGradlePluginVersion: AGPVersion
@@ -513,6 +515,7 @@ open class KotlinAndroid70GradleIT : KotlinAndroid36GradleIT() {
     }
 }
 
+@IgnoreForJunit4
 @GradleTestVersions(minVersion = TestVersions.Gradle.G_7_2)
 open class KotlinAndroid71GradleIT : KotlinAndroid70GradleIT() {
     override val androidGradlePluginVersion: AGPVersion
@@ -588,7 +591,11 @@ open class KotlinAndroid71GradleIT : KotlinAndroid70GradleIT() {
         }
 }
 
-@GradleTestVersions(maxVersion = TestVersions.Gradle.G_6_8) // AGP 3.4.1 is not working with Gradle 7+
+@IgnoreForJunit4
+@GradleTestVersions(
+    minVersion = TestVersions.Gradle.G_6_8,
+    maxVersion = TestVersions.Gradle.G_6_8
+) // AGP 3.4.1 is not working with Gradle 7+
 open class KotlinAndroid34GradleIT : KotlinAndroid3GradleIT() {
     override val androidGradlePluginVersion: AGPVersion
         get() = AGPVersion.v3_4_1
@@ -793,7 +800,7 @@ abstract class AbstractKotlinAndroidGradleTests : BaseGradleIT() {
         super.defaultBuildOptions().copy(
             androidHome = KtTestUtil.findAndroidSdk(),
             androidGradlePluginVersion = androidGradlePluginVersion,
-            parallel = true
+            stopDaemons = false
         )
 
     @GradleTest

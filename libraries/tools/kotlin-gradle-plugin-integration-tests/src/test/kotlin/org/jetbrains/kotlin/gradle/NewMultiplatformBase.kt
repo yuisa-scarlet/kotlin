@@ -49,7 +49,7 @@ abstract class NewMultiplatformBase : BaseGradleIT() {
         )
 
     override fun defaultBuildOptions(): BuildOptions {
-        return super.defaultBuildOptions().copy(parallel = true)
+        return super.defaultBuildOptions().copy(stopDaemons = false)
     }
 
     @BeforeEach
