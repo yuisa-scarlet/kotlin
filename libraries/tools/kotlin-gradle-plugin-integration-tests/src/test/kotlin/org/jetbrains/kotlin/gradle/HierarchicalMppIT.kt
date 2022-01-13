@@ -220,7 +220,6 @@ abstract class BaseHierarchicalMppIT : BaseGradleIT() {
     }
 }
 
-@IgnoreForJunit4
 class HierarchicalMppPublishedThirdPartyLibIT : BaseHierarchicalMppIT() {
     @GradleTest
     fun testPublishedModules(gradleVersion: GradleVersion) {
@@ -712,7 +711,6 @@ class HierarchicalMppPublishedThirdPartyLibIT : BaseHierarchicalMppIT() {
     }
 }
 
-@IgnoreForJunit4
 class HierarchicalMppIT : BaseHierarchicalMppIT() {
 
     @GradleTest

@@ -28,7 +28,6 @@ import org.junit.jupiter.api.BeforeEach
  * - dependency-mode=project: In this case p2 will just declare a regular project dependency on p1
  * - dependency-mode=repository: In this case p2 will rely on a previously published version of p1
  */
-@IgnoreForJunit4
 @MppGradlePluginTests
 class MppCInteropDependencyTransformationIT : BaseGradleIT() {
 

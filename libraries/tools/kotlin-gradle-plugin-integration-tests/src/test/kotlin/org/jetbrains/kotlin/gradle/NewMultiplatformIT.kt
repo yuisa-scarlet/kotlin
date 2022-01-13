@@ -41,9 +41,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformLibAndAppIT : NewMultiplatformBase() {
 
     @GradleTest
@@ -255,7 +253,6 @@ class NewMultiplatformLibAndAppIT : NewMultiplatformBase() {
     }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
 class NewMultiplatformLibAndAppJsBothCompilersIT : NewMultiplatformBase() {
 
@@ -450,9 +447,7 @@ class NewMultiplatformLibAndAppJsBothCompilersIT : NewMultiplatformBase() {
     }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformResolveIT : NewMultiplatformBase() {
     @GradleTest
     fun testResolveMppLibDependencyToMetadata(gradleVersion: GradleVersion) {
@@ -638,9 +633,7 @@ class NewMultiplatformResolveIT : NewMultiplatformBase() {
     }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformJvmWithJavaIT : NewMultiplatformBase() {
     @GradleTest
     fun testJvmWithJavaEquivalence(gradleVersion: GradleVersion) =
@@ -814,9 +807,7 @@ class NewMultiplatformJvmWithJavaIT : NewMultiplatformBase() {
         }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformLibWithTestsIT : NewMultiplatformBase() {
     @GradleTest
     fun testLibWithTests(gradleVersion: GradleVersion) =
@@ -904,9 +895,7 @@ class NewMultiplatformLibWithTestsIT : NewMultiplatformBase() {
     }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformCompilationIT : NewMultiplatformBase() {
 
     @GradleTest
@@ -1045,9 +1034,7 @@ class NewMultiplatformCompilationIT : NewMultiplatformBase() {
     }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformLanguageSettingsIT : NewMultiplatformBase() {
 
     @GradleTest
@@ -1200,9 +1187,7 @@ class NewMultiplatformLanguageSettingsIT : NewMultiplatformBase() {
     }
 }
 
-@IgnoreForJunit4 // Workaround to avoid `No runnable methods` errors for old gradle tests tasks
 @MppGradlePluginTests
-@EnabledOnOs(OS.LINUX)
 class NewMultiplatformIT : NewMultiplatformBase() {
 
     @GradleTest

@@ -36,8 +36,6 @@ import java.util.regex.Pattern
 import kotlin.io.path.isDirectory
 import kotlin.test.*
 
-public typealias IgnoreForJunit4 = org.junit.Ignore
-
 val SYSTEM_LINE_SEPARATOR: String = System.getProperty("line.separator")
 
 @RunWith(value = RunnerWithMuteInDatabase::class)
@@ -297,7 +295,7 @@ abstract class BaseGradleIT {
             projectName: String,
             gradleVersion: GradleVersion,
             directoryPrefix: String? = null,
-            minLogLevel: LogLevel = LogLevel.INFO,
+            minLogLevel: LogLevel = LogLevel.DEBUG,
             addHeapDumpOptions: Boolean = true
         ) : this(projectName, GradleVersionRequired.Exact(gradleVersion.version), directoryPrefix, minLogLevel, addHeapDumpOptions)
 

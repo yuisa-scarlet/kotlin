@@ -18,7 +18,6 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 @MppGradlePluginTests
-@IgnoreForJunit4
 class KlibBasedMppIT : BaseGradleIT() {
     companion object {
         private const val MODULE_GROUP = "com.example"
