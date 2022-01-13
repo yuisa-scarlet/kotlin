@@ -297,7 +297,7 @@ abstract class BaseGradleIT {
             projectName: String,
             gradleVersion: GradleVersion,
             directoryPrefix: String? = null,
-            minLogLevel: LogLevel = LogLevel.DEBUG,
+            minLogLevel: LogLevel = LogLevel.INFO,
             addHeapDumpOptions: Boolean = true
         ) : this(projectName, GradleVersionRequired.Exact(gradleVersion.version), directoryPrefix, minLogLevel, addHeapDumpOptions)
 
