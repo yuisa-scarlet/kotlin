@@ -40,7 +40,7 @@ class MppHighlightingTestDataWithGradleIT : BaseGradleIT() {
     }
 
     @GradleTestVersions
-    @ParameterizedTest(name = "{0}")
+    @ParameterizedTest(name = "{3}: {0}")
     @ArgumentsSource(ArgumentsProvider::class)
     fun runTestK2NativeCli(
         @Suppress("UNUSED_PARAMETER") // used for parameter string representation in test output
@@ -51,7 +51,7 @@ class MppHighlightingTestDataWithGradleIT : BaseGradleIT() {
     ) = doTest(CliCompiler.NATIVE, prepareProject(gradleVersion), testDataDir, sourceRoots)
 
     @GradleTestVersions
-    @ParameterizedTest(name = "{0}")
+    @ParameterizedTest(name = "{3}: {0}")
     @ArgumentsSource(ArgumentsProvider::class)
     fun runTestK2MetadataCli(
         @Suppress("UNUSED_PARAMETER") // used for parameter string representation in test output

@@ -28,6 +28,8 @@ import org.jetbrains.kotlin.gradle.testbase.GradleTest
 import org.jetbrains.kotlin.gradle.testbase.MppGradlePluginTests
 import org.jetbrains.kotlin.gradle.util.getFileByName
 import org.jetbrains.kotlin.gradle.util.modify
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import java.io.File
 import kotlin.test.assertTrue
 
@@ -37,6 +39,16 @@ class MultiplatformGradleIT : BaseGradleIT() {
 
     override fun defaultBuildOptions(): BuildOptions {
         return super.defaultBuildOptions().copy(stopDaemons = false)
+    }
+
+    @BeforeEach
+    fun before() {
+        super.setUp()
+    }
+
+    @AfterEach
+    fun after() {
+        super.tearDown()
     }
 
     @GradleTest
