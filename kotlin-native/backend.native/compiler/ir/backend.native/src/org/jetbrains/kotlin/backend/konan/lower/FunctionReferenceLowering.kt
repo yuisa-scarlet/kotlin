@@ -410,7 +410,7 @@ internal class FunctionReferenceLowering(val context: Context): FileLoweringPass
                 referencedFunction.origin == IrDeclarationOrigin.ADAPTER_FOR_FUN_INTERFACE_CONSTRUCTOR
 
         private fun isCoercedToUnit() =
-                adaptedReferenceOriginalTarget?.returnType?.isUnit() == true && referencedFunction.returnType.isUnit()
+                adaptedReferenceOriginalTarget?.returnType?.isUnit() == false && referencedFunction.returnType.isUnit()
 
         private fun hasVarargMappedToElement(): Boolean {
             if (adaptedReferenceOriginalTarget == null) return false
